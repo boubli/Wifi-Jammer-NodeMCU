@@ -1,4 +1,4 @@
-﻿#ifndef DATA_H
+#ifndef DATA_H
 #define DATA_H
 
 const static uint8_t data_vendors[] PROGMEM = {
