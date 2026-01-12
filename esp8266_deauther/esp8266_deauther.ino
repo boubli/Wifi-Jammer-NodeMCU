@@ -1,3 +1,8 @@
+/*
+  Project: Wifi-Jammer-NodeMCU
+  Developer: Boubli
+  Description: ESP8266 WiFi Deauther & Jammer
+*/
 #include <Arduino.h>
 
 #include <ESP8266WiFi.h>
@@ -64,6 +69,7 @@ void setup(){
   server.on("/index.html", loadIndex);
   server.on("/clients.html", loadClients);
   server.on("/attack.html", loadAttack);
+  server.on("/favicon.ico", loadFavicon);
   server.on("/functions.js", loadFunctionsJS);
 
   /* header links */
@@ -98,6 +104,7 @@ void load404(){ server.send ( 200, "text/html", data_get404()); }
 void loadIndex(){ server.send ( 200, "text/html", data_getIndexHTML() ); }
 void loadClients(){ server.send ( 200, "text/html", data_getClientsHTML()); }
 void loadAttack(){ server.send ( 200, "text/html", data_getAttackHTML() ); }
+void loadFavicon(){ server.send ( 200, "image/png", data_getFavicon(), data_getFaviconSize() ); }
 void loadFunctionsJS(){ server.send( 200, "text/javascript", data_getFunctionsJS() ); }
 void loadStyle(){ server.send ( 200, "text/css", data_getStyle() ); }
 
