@@ -1,0 +1,35 @@
+name: Build ESP8266 Firmware
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Arduino CLI
+      uses: arduino/setup-arduino-cli@v1.1.2
+
+    - name: Install ESP8266 Platform
+      run: |
+        arduino-cli config init
+        arduino-cli config set board_manager.additional_urls https://arduino.esp8266.com/stable/package_esp8266com_index.json
+        arduino-cli core update-index
+        arduino-cli core install esp8266:esp8266
+
+    - name: Compile Sketch
+      run: |
+        arduino-cli compile --fqbn esp8266:esp8266:nodemcuv2 --output-dir ./build ./esp8266_deauther/esp8266_deauther.ino
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: firmware-bin
+        path: ./build/esp8266_deauther.ino.bin
