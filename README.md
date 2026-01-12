@@ -7,10 +7,10 @@
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Platform](https://img.shields.io/badge/platform-ESP8266-blue.svg)](https://github.com/esp8266/Arduino)
-  [![Legacy](https://img.shields.io/badge/Project-Legacy%20(8y+)-orange.svg)]()
+  ![Legacy](https://img.shields.io/badge/established-2019-red.svg?label=Legacy)
   [![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green.svg)]()
 
-  *Developed by **Boubli** | Created ~2016*
+  *Est. 2019 by Boubli*
 </div>
 
 ---
